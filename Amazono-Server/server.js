@@ -29,11 +29,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 app.use(cors());
 
-app.get("/", (req, res, next) => {
-  res.json({
-    user: "Armand",
-  });
-});
+// app.get("/", (req, res, next) => {
+//   res.json({
+//     user: "Armand",
+//   });
+// });
+
+const userRoutes = require("./Routes/Account");
+const { use } = require("./Routes/Account");
+app.use("/api/accounts", userRoutes);
 
 app.listen(config.port, (err) => {
   console.log("We die here ");
