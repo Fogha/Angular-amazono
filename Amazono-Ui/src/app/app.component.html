@@ -42,44 +42,39 @@
           >
             <a class="nav-link dropdown-toggle" ngbDropdownToggle>
               <i class="fa fa-user mr-1"></i>
-              <span *ngIf="!token">Account</span>
+              <span *ngIf="!token">Accounts</span>
             </a>
-            <div class="dropdown-menu" ngbDropdown>
+            <div ngbDropdownMenu class="dropdown-menu">
               <a
-                href=""
                 *ngIf="token"
                 (click)="closeDropdown(dropdown); collapse()"
-                [routerLink]="['/profile']"
+                routerLink="/profile"
                 class="dropdown-item"
               >
-                <i class="fa fa-user-circle" aria-hidden="true"></i>Profile
+                <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
               </a>
               <a
-                href=""
-                *ngIf="token"
+                *ngIf="!token"
                 (click)="closeDropdown(dropdown); collapse()"
-                [routerLink]="['/profile']"
+                routerLink="/login"
                 class="dropdown-item"
               >
-                <i class="fa fa-key" aria-hidden="true"></i>Login
+                <i class="fa fa-key" aria-hidden="true"></i> Login
               </a>
               <a
-                href=""
                 *ngIf="token"
                 (click)="closeDropdown(dropdown); collapse(); logout()"
-                [routerLink]="['/profile']"
                 class="dropdown-item"
               >
-                <i class="fa fa-key" aria-hidden="true"></i>Logout
+                <i class="fa fa-key" aria-hidden="true"></i> Logout
               </a>
               <a
-                href=""
-                *ngIf="token"
+                *ngIf="!token"
                 (click)="closeDropdown(dropdown); collapse()"
-                [routerLink]="['/profile']"
+                routerLink="/register"
                 class="dropdown-item"
               >
-                <i class="fa fa-group" aria-hidden="true"></i>Register
+                <i class="fa fa-group" aria-hidden="true"></i> Register
               </a>
             </div>
           </li>
@@ -98,9 +93,7 @@
   </div>
 </nav>
 
-<router-outlet>
-  <app-home></app-home>
-</router-outlet>
+<router-outlet> </router-outlet>
 
 <footer id="main-footer" class="bg-main text-white p-5 mt-5">
   <div class="container">
