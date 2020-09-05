@@ -14,7 +14,7 @@ const userSchema = new Schema({
     city: String,
     state: String,
     country: String,
-    postalCode: String,
+    postalcode: String,
   },
   created: { type: Date, default: Date.now },
 });
