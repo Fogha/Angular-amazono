@@ -1,0 +1,78 @@
+<section id="settings">
+  <div class="container p-5">
+    <h4 class="display-4">My Account Settings</h4>
+    <hr />
+    <app-message></app-message>
+    <div class="m-auto" *ngIf="!currentSettings">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <div class="card ng-light" *ngIf="currentSettings">
+      <div class="card-body">
+        <form action="" class="form-group">
+          <div class="form-group">
+            <label for="name" class="form-control-label"> Name </label>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              [(ngModel)]="currentSettings.name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-control-label"> Email </label>
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              [(ngModel)]="currentSettings.email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="newPwd" class="form-control-label">
+              New Password
+            </label>
+            <input
+              type="password"
+              name="newPwd"
+              class="form-control"
+              [(ngModel)]="currentSettings.newPwd"
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirmPwd" class="form-control-label">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              name="confirmPwd"
+              class="form-control"
+              [(ngModel)]="currentSettings.confirmPwd"
+            />
+          </div>
+          <div class="form-check">
+            <label for="isSelller" class="form-check-label">
+              <input
+                type="checkbox"
+                name="isSeller"
+                class="form-check-input"
+                [(ngModel)]="currentSettings.isSeller"
+              />
+              Register as Seller
+            </label>
+          </div>
+          <hr />
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            (click)="update()"
+            [disabled]="btnDisabled"
+          >
+            Update
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

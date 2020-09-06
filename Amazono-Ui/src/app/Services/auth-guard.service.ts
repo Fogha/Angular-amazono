@@ -14,10 +14,13 @@ export class AuthGuardService {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (localStorage.getItem('token')) {
-      this.router.navigate(['/']);
-      return false;
+      return state.url.startsWith('/profile')
+        ? true
+        : (this.router.navigate(['/']), false);
     } else {
-      return true;
+      return state.url.startsWith('/profile')
+        ? (this.router.navigate(['/']), false)
+        : false;
     }
   }
 }

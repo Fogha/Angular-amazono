@@ -114,8 +114,7 @@ router
 
       res.json({
         success: true,
-        user,
-        //address: user.address,
+        address: user.address,
         message: "successful",
       });
     });
@@ -128,7 +127,9 @@ router
       if (req.body.addr2) user.address.addr2 = req.body.addr2;
       if (req.body.city) user.address.city = req.body.city;
       if (req.body.country) user.address.country = req.body.country;
-      if (req.body.postalcode) user.address.postalcode = req.body.postalcode;
+      if (req.body.postalCode) user.address.postalCode = req.body.postalCode;
+
+      console.log(user.address);
 
       user.save();
       res.json({
